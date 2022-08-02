@@ -12,13 +12,12 @@ def martinkyselSolution(M, A):
             the_sum += (front-back+1)
             seen[A[front]] = True
             front += 1
-        else:
-            while front < len(A) and back < len(A) and A[back] != A[front]:
-                seen[A[back]] = False
-                back += 1
-                 
+        while front < len(A) and back < len(A) and A[back] != A[front]:
             seen[A[back]] = False
             back += 1
+
+        seen[A[back]] = False
+        back += 1
     return min(the_sum, 1000000000)
 
 def codesaysSolution(M, A):
@@ -35,9 +34,9 @@ def codesaysSolution(M, A):
             # Compute the number of distinct slices 
             # between newBack-1 and back position.
             newBack = accessed[A[front]] + 1
-            
+
             # result += (newBack - back) * (front - back + front - newBack + 1) / 2
-            
+
             result += (front - back) * (front - back + 1) / 2
             result -= (front - newBack) * (front - newBack + 1) / 2
 
@@ -46,7 +45,7 @@ def codesaysSolution(M, A):
             # Restore and set the accessed array
             for index in range(back, newBack):
                 accessed[A[index]] = -1
-                
+
             accessed[A[front]] = front
             back = newBack
 

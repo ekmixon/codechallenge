@@ -3,14 +3,14 @@
 
 import unittest
 def solution(A):
-    return len(set([abs(x) for x in A]))
+    return len({abs(x) for x in A})
 
 class TestSolution(unittest.TestCase):
 
     def test_solution(self):
-        pythonSet = {"apple", "banana", "cherry","banana"}
-        print(pythonSet) 
-        thisset = set(("apple", "banana", "cherry")) # note the double round-brackets
+        pythonSet = {"apple", "cherry", "banana"}
+        print(pythonSet)
+        thisset = {"apple", "banana", "cherry"}
         print(thisset) 
 
     # def test_solution(self):

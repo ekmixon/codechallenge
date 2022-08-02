@@ -4,16 +4,14 @@
 
 
 def gcd(p, q):
-  if q == 0:
-    return p
-  return gcd(q, p % q)
+  return p if q == 0 else gcd(q, p % q)
  
 def hasSameFactors(p, q):
     if p == q == 0:
         return True
-     
+
     denom = gcd(p,q)
-     
+
     while (p != 1):
         p_gcd = gcd(p,denom)
         if p_gcd == 1:
